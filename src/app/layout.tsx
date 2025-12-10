@@ -1,3 +1,5 @@
+import '../styles/global.css';
+
 export const metadata = {
   title: "Petition App",
   description: "Signatures + Ads carousel (localStorage)",
@@ -6,7 +8,7 @@ export const metadata = {
 export default function RootLayout({ children }: { children: React.ReactNode }) {
   return (
     <html lang="en">
-      <body style={{ margin: 0 }}>{children}</body>
+      <body className="animated-bg" style={{ margin: 0 }}>{children}</body>
     </html>
   );
 }

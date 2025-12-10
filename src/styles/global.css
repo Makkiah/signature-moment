@@ -1,0 +1,13 @@
+/* globals.css */
+.animated-bg {
+  background: linear-gradient(120deg, #ff6b6b, #6b6bff, #6bffb0);
+  background-size: 600% 600%;
+  animation: gradientShift 18s ease infinite;
+  min-height: 100vh;
+}
+
+@keyframes gradientShift {
+  0% { background-position: 0% 50%; }
+  50% { background-position: 100% 50%; }
+  100% { background-position: 0% 50%; }
+}
