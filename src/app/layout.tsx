@@ -1,8 +1,8 @@
 import '../styles/global.css';
 
 export const metadata = {
-  title: "Petition App",
-  description: "Signatures + Ads carousel (localStorage)",
+  title: "Signature Moment",
+  description: "Saving the moment, one signature at a time.",
 };
 
 export default function RootLayout({ children }: { children: React.ReactNode }) {
