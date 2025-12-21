@@ -102,7 +102,7 @@ export default function AdminPage() {
     <div style={appStyles}>
       <header style={headerStyles}>
         <div style={{ display: "flex", alignItems: "center", gap: 8 }}>
-          <span style={{ fontWeight: 700 }}>Petition App</span>
+          <span style={{ fontWeight: 700 }}>Signature Moment</span>
           <span style={{ color: "#9ca3af" }}>|</span>
           <span style={{ color: "#6b7280", fontSize: 14 }}>Admin</span>
         </div>
