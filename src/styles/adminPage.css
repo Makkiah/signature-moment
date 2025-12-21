@@ -2,7 +2,7 @@
   border: 1px solid #111827;
   padding: 10px 16px;
   border-radius: 8;
-  background-color: rgba(255, 255, 6);
+  background-color: #111827;
   color: white;
   cursor: pointer;
   font-weight: 600;
@@ -13,6 +13,7 @@
   padding: 10px 16px;
   border-radius: 8;
   background-color: rgba(255, 255, 6);
+  color: #000;
   transition: all .3s ease;
 }
 .ap-saveDisabled{
