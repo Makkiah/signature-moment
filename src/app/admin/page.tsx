@@ -1,5 +1,5 @@
 "use client";
-
+import "../../styles/adminPage.css";
 import React, { useEffect, useMemo, useState } from "react";
 import Link from "next/link";
 import Image from "next/image";
@@ -10,27 +10,6 @@ import {
 import {
   LS_KEYS, type AdItem, loadAdItems, loadNumber, loadString, save,
 } from "@/lib/storage";
-
-const saveBtnEnabled: React.CSSProperties = {
-  border: "1px solid #111827",
-  padding: "10px 16px",
-  borderRadius: 8,
-  background: "#111827",
-  color: "white",
-  cursor: "pointer",
-  fontWeight: 600,
-};
-
-const saveBtnDisabled: React.CSSProperties = {
-  border: "1px solid #d1d5db",
-  padding: "10px 16px",
-  borderRadius: 8,
-  background: "#9ca3af",
-  color: "white",
-  cursor: "not-allowed",
-  fontWeight: 600,
-  opacity: 0.9,
-};
 
 export default function AdminPage() {
   const [mounted, setMounted] = useState(false);
@@ -246,11 +225,11 @@ export default function AdminPage() {
         </div>
 
         {/* Save button inline with cards */}
-        <div style={{ marginTop: 8 }}>
+        <div style={{ margin: "12px 0px" }}>
           <button
             onClick={onSaveAll}
             disabled={!dirty}
-            style={dirty ? saveBtnEnabled : saveBtnDisabled}
+            className={dirty ? "ap-saveEnabled" : "ap-saveDisabled"}
             aria-disabled={!dirty}
           >
             Save Changes
