@@ -65,9 +65,9 @@ export default function AdCarousel({ items, intervalSec }: Props) {
       bottom: 0, left: 0, right: 0,
       height: bannerBarHeight,
       borderTop: "1px solid #e5e7eb",
-      background: "#f9fafb",
+      background: "rgba(0,0,0,0.65)", color: "white",
       display: "flex", alignItems: "center", justifyContent: "center",
-      padding: 8, boxSizing: "border-box", zIndex: 10,
+      padding: "2px 8px", borderRadius: 9999, fontSize: 12,
     }}>
       <div style={{
         position: "relative", width: "100%", height: "100%",
@@ -89,7 +89,8 @@ export default function AdCarousel({ items, intervalSec }: Props) {
           <div style={{
             position: "absolute", right: 8, bottom: 8,
             background: "rgba(0,0,0,0.65)", color: "white",
-            padding: "2px 8px", borderRadius: 9999, fontSize: 12,
+            padding: " 2px 8px", borderRadius: 9999, fontSize: 12,
+            
           }}>
             Next in {timeLeft}s
           </div>
