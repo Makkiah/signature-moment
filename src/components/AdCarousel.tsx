@@ -67,7 +67,7 @@ export default function AdCarousel({ items, intervalSec }: Props) {
       borderTop: "1px solid #e5e7eb",
       background: "rgba(0,0,0,0.65)", color: "white",
       display: "flex", alignItems: "center", justifyContent: "center",
-      padding: "2px 8px", borderRadius: 9999, fontSize: 12,
+      padding: "2px 8px", borderRadius: 9999, fontSize: 12, margin: "auto auto 20px", maxWidth: "906px",
     }}>
       <div style={{
         position: "relative", width: "100%", height: "100%",
@@ -87,9 +87,9 @@ export default function AdCarousel({ items, intervalSec }: Props) {
         )}
         {items?.length > 1 && (
           <div style={{
-            position: "absolute", right: 8, bottom: 8,
-            background: "rgba(0,0,0,0.65)", color: "white",
-            padding: " 2px 8px", borderRadius: 9999, fontSize: 12,
+            position: "absolute", right: 31, bottom: 8,
+            background: "rgba(255, 255, 255, 0.31)", color: "white",
+            padding: " 2px 8px", borderRadius: 9999, fontSize: 12, 
             
           }}>
             Next in {timeLeft}s
