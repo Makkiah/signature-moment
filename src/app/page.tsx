@@ -30,7 +30,7 @@ export default function HomePage() {
     <div style={appStyles}>
       <header style={headerStyles}>
         <div style={{ display: "flex", alignItems: "center", gap: 8 }}>
-          <span style={{ fontWeight: 700 }}>Signature Moment</span>
+          <Link href="/"><span style={{ fontWeight: 700 }}>Signature Moment</span></Link>
           <span style={{ color: "#9ca3af" }}>|</span>
           <span style={{ color: "#6b7280", fontSize: 14 }}>Home</span>
         </div>
