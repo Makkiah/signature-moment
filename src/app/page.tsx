@@ -5,6 +5,7 @@ import Link from "next/link";
 import AdCarousel from "@/components/AdCarousel";
 import { LS_KEYS, loadAdItems, loadNumber, loadString } from "@/lib/storage";
 import { appStyles, headerStyles, linkBtn, container, sectionCard } from "@/styles/ui";
+import supabase from '../config/supabaseClient';
 
 export default function HomePage() {
   const [mounted, setMounted] = useState(false);
@@ -12,6 +13,8 @@ export default function HomePage() {
   const [items, setItems] = useState(() => [] as ReturnType<typeof loadAdItems>);
   const [intervalSec, setIntervalSec] = useState<number>(5);
   const [about, setAbout] = useState<string>("");
+
+  console.log(supabase);
 
   useEffect(() => {
     setSignatures(loadNumber(LS_KEYS.signatures, 0));
@@ -24,6 +27,12 @@ export default function HomePage() {
       )
     );
     setMounted(true);
+
+    async function getMetaData(){
+      const {data} = await supabase.from('Site_Metadata').select()
+      console.log("DATA: " + data)
+    }
+    getMetaData();
   }, []);
 
   return (
