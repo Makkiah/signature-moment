@@ -14,7 +14,20 @@ export default function HomePage() {
   const [intervalSec, setIntervalSec] = useState<number>(5);
   const [about, setAbout] = useState<string>("");
 
+  type siteMetaData = {
+    id: number,
+    site_about: string,
+    site_signatures: number,
+  }
+  const [siteData, setSiteData] = useState<siteMetaData>({
+    id: 0,
+    site_about: "",
+    site_signatures: 0,
+  })
+  console.log("SUPABASE");
   console.log(supabase);
+  console.log("SUPABASE END*");
+
 
   useEffect(() => {
     setSignatures(loadNumber(LS_KEYS.signatures, 0));
@@ -29,8 +42,12 @@ export default function HomePage() {
     setMounted(true);
 
     async function getMetaData(){
-      const {data} = await supabase.from('Site_Metadata').select()
-      console.log("DATA: " + data)
+      const {data} = await supabase.from('Site_Metadata').select();
+
+      
+      console.log("DATA: ")
+      console.log(data ? data[0].site_about : "Nothing")
+      console.log("DATA END*")
     }
     getMetaData();
   }, []);
