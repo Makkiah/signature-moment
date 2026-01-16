@@ -10,6 +10,9 @@ import {
 import {
   LS_KEYS, type AdItem, loadAdItems, loadNumber, loadString, save,
 } from "@/lib/storage";
+import supabase from '../../config/supabaseClient';
+
+
 
 export default function AdminPage() {
   const [mounted, setMounted] = useState(false);
@@ -21,15 +24,23 @@ export default function AdminPage() {
 
   const [newImage, setNewImage] = useState("");
   const [newLink, setNewLink] = useState("");
-
+  
   const [dirty, setDirty] = useState(false);
 
   useEffect(() => {
-    setSignatures(loadNumber(LS_KEYS.signatures, 0));
+    // setSignatures(loadNumber(LS_KEYS.signatures, 0));
     setIntervalSec(loadNumber(LS_KEYS.adIntervalSec, 5));
     setItems(loadAdItems());
-    setAbout(loadString(LS_KEYS.aboutText, ""));
+    // setAbout(loadString(LS_KEYS.aboutText, ""));
     setMounted(true);
+
+    async function getMetaData(){
+      const {data} = await supabase.from('Site_Metadata').select();
+      setAbout(data ? data[0].site_about : "No About")
+      setSignatures(data ? data[0].site_signatures : 0)
+    }
+    getMetaData();
+
   }, []);
 
   useEffect(() => {

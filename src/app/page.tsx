@@ -3,7 +3,7 @@
 import React, { useEffect, useState } from "react";
 import Link from "next/link";
 import AdCarousel from "@/components/AdCarousel";
-import { LS_KEYS, loadAdItems, loadNumber, loadString } from "@/lib/storage";
+import { LS_KEYS, loadAdItems, loadNumber } from "@/lib/storage";
 import { appStyles, headerStyles, linkBtn, container, sectionCard } from "@/styles/ui";
 import supabase from '../config/supabaseClient';
 
@@ -14,40 +14,16 @@ export default function HomePage() {
   const [intervalSec, setIntervalSec] = useState<number>(5);
   const [about, setAbout] = useState<string>("");
 
-  type siteMetaData = {
-    id: number,
-    site_about: string,
-    site_signatures: number,
-  }
-  const [siteData, setSiteData] = useState<siteMetaData>({
-    id: 0,
-    site_about: "",
-    site_signatures: 0,
-  })
-  console.log("SUPABASE");
-  console.log(supabase);
-  console.log("SUPABASE END*");
-
 
   useEffect(() => {
-    setSignatures(loadNumber(LS_KEYS.signatures, 0));
     setItems(loadAdItems());
     setIntervalSec(loadNumber(LS_KEYS.adIntervalSec, 5));
-    setAbout(
-      loadString(
-        LS_KEYS.aboutText,
-        "This page shows the current signature count. The advertisement banner area is fixed to the bottom of the screen and cycles through images added on the Admin page."
-      )
-    );
     setMounted(true);
 
     async function getMetaData(){
       const {data} = await supabase.from('Site_Metadata').select();
-
-      
-      console.log("DATA: ")
-      console.log(data ? data[0].site_about : "Nothing")
-      console.log("DATA END*")
+      setAbout(data ? data[0].site_about : "No About")
+      setSignatures(data ? data[0].site_signatures : 0)
     }
     getMetaData();
   }, []);
