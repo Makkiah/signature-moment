@@ -11,6 +11,7 @@ import {
   LS_KEYS, type AdItem, loadAdItems, loadNumber, loadString, save,
 } from "@/lib/storage";
 import supabase from '../../config/supabaseClient';
+import Header from '../../components/Header';
 
 
 
@@ -90,17 +91,7 @@ export default function AdminPage() {
 
   return (
     <div style={appStyles}>
-      <header style={headerStyles}>
-        <div style={{ display: "flex", alignItems: "center", gap: 8 }}>
-          <Link href="/"><span style={{ fontWeight: 700 }}>Signature Moment</span></Link>
-          <span style={{ color: "#9ca3af" }}>|</span>
-          <span style={{ color: "#6b7280", fontSize: 14 }}>Admin</span>
-        </div>
-        <nav style={{ display: "flex", gap: 8 }}>
-          <Link href="/" style={linkBtn}>Home</Link>
-          <Link href="/admin" style={linkBtn}>Admin</Link>
-        </nav>
-      </header>
+      <Header title="Admin Page"/>
 
       <main style={container}>
         <div style={sectionCard}>
