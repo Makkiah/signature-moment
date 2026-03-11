@@ -42,12 +42,15 @@ export default function HomePage() {
     setMounted(true);
 
     async function getMetaData(){
-      const {data} = await supabase.from('Site_Metadata').select();
+      const { data } = await supabase.from('Site_Metadata').select();
 
       
       console.log("DATA: ")
       console.log(data ? data[0].site_about : "Nothing")
       console.log("DATA END*")
+      if (data?.[0]) {
+        setSiteData(data[0] as siteMetaData);
+      }
     }
     getMetaData();
   }, []);
